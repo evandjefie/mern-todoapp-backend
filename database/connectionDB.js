@@ -1,8 +1,9 @@
+const mongoose = require('mongoose');
 
-import mongoose from "mongoose";
+const connectionLink = process.env.MONGO_URI;
 
 const connectionDB = () => {
-    mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true }).then(() => console.log("Connected to DB")).catch((error) => console.error(error.message));
+    mongoose.connect(connectionLink, { useNewUrlParser: true }).then(() => console.log("Connected to DB")).catch((error) => console.error(error.message));
 };
 
 export default connectionDB;
